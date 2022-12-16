@@ -24,7 +24,7 @@ public class PostController {
         if (data.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         } else {
-            final var gson = new Gson();
+            final Gson gson = new Gson();
             response.getWriter().print(gson.toJson(data));
             response.setStatus(HttpServletResponse.SC_OK);
         }
