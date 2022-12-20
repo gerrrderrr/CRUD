@@ -1,9 +1,10 @@
-package controller;
+package netology.controller;
 
 import com.google.gson.Gson;
-import exception.NotFoundException;
-import model.Post;
-import service.PostService;
+import netology.exception.NotFoundException;
+import netology.model.Post;
+import org.springframework.stereotype.Controller;
+import netology.service.PostService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

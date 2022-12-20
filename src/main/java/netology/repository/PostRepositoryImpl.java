@@ -1,21 +1,23 @@
-package repository;
+package netology.repository;
 
-import exception.NotFoundException;
-import model.Post;
+import netology.exception.NotFoundException;
+import netology.model.Post;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-// Stub
-public class PostRepository {
+public class PostRepositoryImpl implements PostRepository {
     private static final Map<Long, Post> SAVED_POSTS = new ConcurrentHashMap<>();
     private static final AtomicLong POST_COUNTER = new AtomicLong();
 
+    @Override
     public List<Post> all() {
         return SAVED_POSTS.values().stream().toList();
     }
 
+    @Override
     public Optional<Post> getById(long id) {
         if (SAVED_POSTS.containsKey(id)) {
             return Optional.of(SAVED_POSTS.get(id));
@@ -24,6 +26,7 @@ public class PostRepository {
         }
     }
 
+    @Override
     public Post save(Post post) {
         final long id = post.getId();
         if (id == 0) {
@@ -39,6 +42,7 @@ public class PostRepository {
         }
     }
 
+    @Override
     public void removeById(long id) {
         if (!SAVED_POSTS.containsKey(id)) {
             throw new NotFoundException("No Post to remove");
