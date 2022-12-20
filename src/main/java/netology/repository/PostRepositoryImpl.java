@@ -8,7 +8,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Repository
 public class PostRepositoryImpl implements PostRepository {
     private static final Map<Long, Post> SAVED_POSTS = new ConcurrentHashMap<>();
     private static final AtomicLong POST_COUNTER = new AtomicLong();
